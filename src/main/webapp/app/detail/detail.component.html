@@ -1,26 +1,31 @@
-<a class="btn btn-info form-control" href="#/home">返回登录页</a>
-<a class="btn btn-link" href="http://shark.mail.netease.com/shark-angular2/index.html" target="_blank">更多shark-angular的demo请访问：http://shark.mail.netease.com/shark-angular2/index.html</a>
-<div shark-tabs [initTab]=1>
-    <ul class="nav nav-tabs">
+<!--<a class="btn btn-info form-control" href="#/home">返回登录页</a>-->
+<!--<a class="btn btn-link" href="http://shark.mail.netease.com/shark-angular2/index.html" target="_blank">更多shark-angular的demo请访问：http://shark.mail.netease.com/shark-angular2/index.html</a>-->
+<div class="slogan">Do once, Never again!</div>
+<div shark-tabs [initTab]=0>
+    <ul class="nav nav-tabs nav-justify">
         <li>
-            <a href="javascript:void(0);">Tree</a>
+            <a href="javascript:void(0);">UI</a>
         </li>
         <li>
-            <a href="javascript:void(0);">pager</a>
+            <a href="javascript:void(0);">Form</a>
         </li>
         <li>
-            <a href="javascript:void(0);">selecter</a>
+            <a href="javascript:void(0);">Media</a>
         </li>
         <li>
-            <a href="javascript:void(0);">fileupload</a>
+            <a href="javascript:void(0);">Nav</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">Other</a>
         </li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane">
-            <div shark-tree #tree="shark-tree" [data]="treeData" [checkable]=true [autolink]=true [preExpand]=true></div>
+            <div shark-tree #tree="shark-tree" [data]="treeData" [checkable]=true [autolink]=true [preExpand]=true>
             <button class="btn btn-default" (click)="checkAll();">全选</button>
             <button class="btn btn-default" (click)="reverseCheckAll();" shark-tooltip [tooltipContent]="toolTipContent" [direction]="'right'">反选</button>
             <button class="btn btn-default" (click)="checkNo();">不选</button>
+            </div>
         </div>
         <div class="tab-pane">
             <div shark-pager 
@@ -64,6 +69,9 @@
                     开始上传
                 </button>
             </h3>
+        </div>
+        <div class="tab-pane">
+            字体库，布局，
         </div>
     </div>
 </div>
