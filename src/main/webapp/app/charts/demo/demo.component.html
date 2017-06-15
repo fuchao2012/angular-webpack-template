@@ -1,0 +1,213 @@
+<h1>Angular-X-Echarts-Demo</h1>
+
+<!--.row>.col-md-6>.well>ul>(li>a[href=#demo$]{Demo $})*7-->
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <ul>
+                <li><a href="#demo1">Demo 1</a></li>
+                <li><a href="#demo2">Demo 2</a></li>
+                <li><a href="#demo3">Demo 3</a></li>
+                <li><a href="#demo4">Demo 4</a></li>
+                <li><a href="#demo5">Demo 5</a></li>
+                <li><a href="#demo6">Demo 6</a></li>
+                <li><a href="#demo7">Demo 7</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--FIXME .row>(.col-md-6>#demo$.panel.panel-info>((.panel-heading>h3.panel-title{Demo $: })+(.panel-body>.demo-chart+hr+tabset))*7-->
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-info" id="demo1">
+            <div class="panel-heading">
+                <h3 class="panel-title">Demo 1: Standard "options"</h3>
+            </div>
+            <div class="panel-body">
+                <div echarts [options]="options1" class="demo-chart"></div>
+                <hr>
+                <tabset>
+                    <tab heading="html">
+                        <codeblock language="html">
+                            <!--todo add html automatically-->
+                            &lt;div echarts [options]="option1" class="demo-chart">&lt;/div>
+                        </codeblock>
+                    </tab>
+                    <tab heading="options">
+                        <codeblock language="ts">
+                            option = {{option1 | json}}
+                        </codeblock>
+                    </tab>
+                </tabset>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-info" id="demo2">
+            <div class="panel-heading">
+                <h3 class="panel-title">Demo 2: Use "dataset" to update chart </h3>
+            </div>
+            <div class="panel-body">
+                <button class="btn btn-primary" (click)="changeDataset()">Change dateset</button>
+                <hr>
+                <div echarts [options]="options2" [dataset]="dataset" class="demo-chart"></div>
+                <hr>
+                <tabset>
+                    <tab heading="html">
+                        <codeblock language="html">
+                            &lt;div echarts [options]="options2" [dataset]="dataset" class="demo-chart">&lt;/div>
+                        </codeblock>
+                    </tab>
+                    <tab heading="dataset">
+                        <codeblock language="ts">
+                            dataset = {{dataset | json}}
+                        </codeblock>
+                    </tab>
+                    <tab heading="options">
+                        <codeblock language="ts">
+                            option = {{options2 | json}}
+                        </codeblock>
+                    </tab>
+                </tabset>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-info" id="demo3">
+            <div class="panel-heading">
+                <h3 class="panel-title">Demo 3: use Loading </h3>
+            </div>
+            <div class="panel-body">
+                <button class="btn btn-primary" (click)="toggleLoading()">Toggle Loading</button>
+                <hr>
+                <div echarts [options]="options3" [loading]="loading" class="demo-chart"></div>
+                <hr>
+                <tabset>
+                    <tab heading="html">
+                        <codeblock language="html">
+                            &lt;div echarts [options]="options3" [loading]="loading" class="demo-chart">&lt;/div>
+                        </codeblock>
+                    </tab>
+                    <tab heading="loading">
+                        <codeblock language="ts">
+                            loading = {{loading| json}}
+                        </codeblock>
+                    </tab>
+                    <tab heading="options">
+                        <codeblock language="ts">
+                            option = {{options3 | json}}
+                        </codeblock>
+                    </tab>
+                </tabset>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-info" id="demo4">
+            <div class="panel-heading">
+                <h3 class="panel-title">Demo 4: Binding to mouse events</h3>
+            </div>
+            <div class="panel-body">
+                <h4>Open your terminal and watch what's ouput while clicking the chart</h4>
+                <hr>
+                <div echarts [options]="options4" (click)="onChartClick($event)" (dblclick)="onChartDbClick($event)" class="demo-chart"></div>
+                <hr>
+                <tabset>
+                    <tab heading="html">
+                        <codeblock language="html">
+                            &lt;div echarts [options]="options4" (click)="onChartClick($event)" (dblclick)="onChartDbClick($event)" class="demo-chart">&lt;/div>
+                        </codeblock>
+                    </tab>
+                    <tab heading="options">
+                        <codeblock language="ts">
+                            option = {{options4 | json}}
+                        </codeblock>
+                    </tab>
+                </tabset>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-info" id="demo5">
+            <div class="panel-heading">
+                <h3 class="panel-title">Demo 5: update the "options"</h3>
+            </div>
+            <div class="panel-body">
+                <div class="btn-group">
+                    <button class="btn btn-primary" (click)="changeOptions()" [disabled]="revert">Change Options</button>
+                    <button class="btn btn-primary" (click)="revertOptions()" [disabled]="!revert">Revert Options</button>
+                </div>
+                <hr>
+                <div echarts [options]="options5" [dataset]="dataset" class="demo-chart"></div>
+                <hr>
+                <tabset>
+                    <tab heading="html">
+                        <codeblock language="html">
+                            &lt;div echarts [options]="options5" [dataset]="dataset" class="demo-chart">&lt;/div>
+                        </codeblock>
+                    </tab>
+                    <tab heading="options">
+                        <codeblock language="ts">
+                            option = {{options5 | json}}
+                        </codeblock>
+                    </tab>
+                </tabset>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-info" id="demo6">
+            <div class="panel-heading">
+                <h3 class="panel-title">Demo 6: Expose the "echartsInstance" </h3>
+            </div>
+            <div class="panel-body">
+                <div class="btn-group">
+                    <button class="btn btn-primary" (click)="showLoadingByInstance()">Show Loading by Instance</button>
+                    <button class="btn btn-primary" (click)="hideLoadingByInstance()">Hide Loading by Instance</button>
+                </div>
+                <hr>
+                <div echarts [options]="options3" (chartInit)="onChartInit($event)" class="demo-chart"></div>
+                <hr>
+                <tabset>
+                    <tab heading="html">
+                        <codeblock language="html">
+                            &lt;div echarts [options]="options3" (chartInit)="onChartInit($event)" class="demo-chart">&lt;/div>
+                        </codeblock>
+                    </tab>
+                    <tab heading="options">
+                        <codeblock language="ts">
+                            option = {{options3 | json}}
+                        </codeblock>
+                    </tab>
+                    <tab heading='component'>
+                        <codeblock language="ts">
+                            <!--todo checkout code from component-->
+                        </codeblock>
+                </tabset>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-info" id="demo7">
+            <div class="panel-heading">
+                <h3 class="panel-title">Demo 7: Use "theme" to init echarts</h3>
+            </div>
+            <div class="panel-body">
+                <div echarts theme="dark" [options]="options5" [dataset]="dataset" class="demo-chart"></div>
+                <hr>
+                <tabset>
+                    <tab heading="html">
+                        <codeblock language="html">
+                            &lt;div echarts theme="dark" [options]="options5" [dataset]="dataset" class="demo-chart">&lt;/div>
+                        </codeblock>
+                    </tab>
+                    <tab heading="options">
+                        <codeblock language="ts">
+                            option = {{options5 | json}}
+                        </codeblock>
+                    </tab>
+                </tabset>
+            </div>
+        </div>
+    </div>
+</div>
